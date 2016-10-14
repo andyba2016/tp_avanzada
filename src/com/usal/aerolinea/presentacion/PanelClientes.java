@@ -187,15 +187,8 @@ public class PanelClientes extends JPanel implements ActionListener{
 	}
 	
 	private void agregarCliente(Cliente c){
-		int i;
-		for(i=0; i<this.clientes.size();i++);
-		System.out.println("numero de personas actual: " + i);
-		
-		this.clientes.add(c);
-		
-		for(i=0; i<this.clientes.size();i++);
-		System.out.println("numero de personas luego: " + i);
-			
+		this.clientes.clear();
+		this.clientes.add(c);		
 	}
 	
 	private void limpiarTabla(){
@@ -227,6 +220,7 @@ public class PanelClientes extends JPanel implements ActionListener{
 			CamposManager.limpiarCampos(campos);
 			CamposManager.deshabilitarCampos(campos);
 			this.limpiarTabla();
+			this.leerClientes();
 			this.actualizarTabla(this.clientes);
 			btnAgregarCliente.setEnabled(false);
 		}
