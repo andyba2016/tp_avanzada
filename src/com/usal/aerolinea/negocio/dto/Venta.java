@@ -1,8 +1,6 @@
-package com.usal.aerolinea.negocio;
+package com.usal.aerolinea.negocio.dto;
 
 import java.util.Date;
-
-import com.usal.aerolinea.negocio.Cliente.Cliente;
 
 public class Venta {
 	

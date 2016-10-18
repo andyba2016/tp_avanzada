@@ -1,14 +1,16 @@
-package com.usal.aerolinea.negocio.Cliente;
+package com.usal.aerolinea.negocio.dao.implementaciones;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.usal.aerolinea.negocio.IOManager;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.IOManager;
 import com.usal.aerolinea.persistencia.DBManagerCliente;
 import com.usal.aerolinea.persistencia.FileManagerCliente;
 
 
-public class ClienteDAOImpl implements ClienteDAO{
+public class ClienteImplFile implements ClienteInterface{
 
 	//FileManagerCliente fmClientes = new FileManagerCliente();
 	DBManagerCliente fmClientes = new DBManagerCliente();

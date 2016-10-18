@@ -1,11 +1,7 @@
-package com.usal.aerolinea.negocio.Cliente;
+package com.usal.aerolinea.negocio.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import com.usal.aerolinea.negocio.PasajeroFrecuente;
-import com.usal.aerolinea.negocio.Pasaporte;
-import com.usal.aerolinea.negocio.Telefono;
 
 public class Cliente implements Serializable{
 	
@@ -13,12 +9,12 @@ public class Cliente implements Serializable{
 	private String nombre;
 	private String apellido;
 	private String dni;
-	private Pasaporte pasaporte;
+	//private Pasaporte pasaporte;
 	private String cuit;
 	private Date fechaNac;
 	private String email;
 	private Telefono telefono;
-	private PasajeroFrecuente nroPasajeroFrecuente;
+	//private PasajeroFrecuente nroPasajeroFrecuente;
 	
 	public Cliente(){
 		
@@ -54,12 +50,12 @@ public class Cliente implements Serializable{
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	public Pasaporte getPasaporte() {
-		return pasaporte;
-	}
-	public void setPasaporte(Pasaporte pasaporte) {
-		this.pasaporte = pasaporte;
-	}
+//	public Pasaporte getPasaporte() {
+//		return pasaporte;
+//	}
+//	public void setPasaporte(Pasaporte pasaporte) {
+//		this.pasaporte = pasaporte;
+//	}
 	public String getCuit() {
 		return cuit;
 	}
@@ -84,12 +80,12 @@ public class Cliente implements Serializable{
 	public void setTelefono(Telefono telefono) {
 		this.telefono = telefono;
 	}
-	public PasajeroFrecuente getNroPasajeroFrecuente() {
-		return nroPasajeroFrecuente;
-	}
-	public void setNroPasajeroFrecuente(PasajeroFrecuente nroPasajeroFrecuente) {
-		this.nroPasajeroFrecuente = nroPasajeroFrecuente;
-	}
+//	public PasajeroFrecuente getNroPasajeroFrecuente() {
+//		return nroPasajeroFrecuente;
+//	}
+//	public void setNroPasajeroFrecuente(PasajeroFrecuente nroPasajeroFrecuente) {
+//		this.nroPasajeroFrecuente = nroPasajeroFrecuente;
+//	}
 	
 	
 

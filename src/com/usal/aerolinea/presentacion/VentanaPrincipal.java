@@ -12,10 +12,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import com.usal.aerolinea.negocio.Telefono;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAO;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAOImpl;
+import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplFile;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.Telefono;
 
 import java.awt.Dimension;
 

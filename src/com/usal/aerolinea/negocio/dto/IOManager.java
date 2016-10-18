@@ -1,4 +1,4 @@
-package com.usal.aerolinea.negocio;
+package com.usal.aerolinea.negocio.dto;
 
 import java.util.*;
 

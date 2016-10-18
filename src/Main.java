@@ -8,10 +8,10 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JToolBar;
 
-import com.usal.aerolinea.negocio.Telefono;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAO;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAOImpl;
+import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplFile;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.Telefono;
 import com.usal.aerolinea.presentacion.VentanaPrincipal;
 
 import javax.swing.JMenuBar;

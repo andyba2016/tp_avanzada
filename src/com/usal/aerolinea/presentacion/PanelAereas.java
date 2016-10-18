@@ -16,10 +16,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import com.usal.aerolinea.negocio.IOManager;
-import com.usal.aerolinea.negocio.LineaAerea;
-import com.usal.aerolinea.negocio.Telefono;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.IOManager;
+import com.usal.aerolinea.negocio.dto.LineaAerea;
+import com.usal.aerolinea.negocio.dto.Telefono;
 
 import net.miginfocom.swing.MigLayout;
 

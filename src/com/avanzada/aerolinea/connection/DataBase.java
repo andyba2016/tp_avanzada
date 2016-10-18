@@ -11,8 +11,10 @@ public class DataBase {
     private String str;
 
 	public Connection getConn() {
+//		this.str = "jdbc:mysql://127.0.0.1/aerolinea?" +
+//                                   "user=root&password=root";
 		this.str = "jdbc:mysql://127.0.0.1/aerolinea?" +
-                                   "user=root&password=root";
+                "user=root&password=";
 		try {
 			this.conn = DriverManager.getConnection(this.str);
 		} catch (SQLException e) {

@@ -1,4 +1,4 @@
-package com.usal.aerolinea.persistencia;
+package com.usal.aerolinea.negocio.dao.implementaciones;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,23 +9,23 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-
 import com.avanzada.aerolinea.connection.DataBase;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
 import com.usal.aerolinea.negocio.dto.Cliente;
 import com.usal.aerolinea.negocio.dto.IOManager;
 
-public class DBManagerCliente extends DataBase {
+public class ClienteImplJDBC implements ClienteInterface{
 
-	
-
-	public ArrayList<Cliente> leer() throws SQLException {
+	private DataBase db = new DataBase();
+	public ArrayList<Cliente> leerClientes() throws SQLException {
        
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		Connection con = this.getConn();
 		Statement st = null;
 		ResultSet rs = null;
+		Connection con = null;
 		try {
 			
+			con = db.getConn();
 			String query ="SELECT * FROM clientes";
 			st = con.createStatement();
 			rs = st.executeQuery(query);
@@ -52,12 +52,12 @@ public class DBManagerCliente extends DataBase {
 		return clientes;
 	}
 
-	public boolean escribir(ArrayList<Cliente> clientes) throws SQLException {
+	public boolean escribirClientes(ArrayList<Cliente> clientes) throws SQLException {
 		boolean ok = false;
 		Connection con = null;
 		Statement st = null;
 		try {
-			con = this.getConn();
+			con = db.getConn();
 			con.setAutoCommit(false);
 			for (Cliente cliente : clientes) {
 				String query = "INSERT INTO clientes (nombre,apellido,dni,cuit)" + " VALUES ('" + cliente.getNombre() + "','"
@@ -80,3 +80,4 @@ public class DBManagerCliente extends DataBase {
 	}
 
 }
+

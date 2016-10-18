@@ -16,12 +16,12 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-import com.usal.aerolinea.negocio.IOManager;
-import com.usal.aerolinea.negocio.Telefono;
-import com.usal.aerolinea.negocio.Vuelo;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAO;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAOImpl;
+import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplFile;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.IOManager;
+import com.usal.aerolinea.negocio.dto.Telefono;
+import com.usal.aerolinea.negocio.dto.Vuelo;
 
 import net.miginfocom.swing.MigLayout;
 

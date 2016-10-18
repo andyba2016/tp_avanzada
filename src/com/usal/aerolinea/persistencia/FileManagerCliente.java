@@ -8,8 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import com.usal.aerolinea.negocio.IOManager;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.IOManager;
 
 public class FileManagerCliente {
 	

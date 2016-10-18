@@ -1,11 +1,11 @@
 package com.usal.aerolinea.presentacion;
 
-import java.awt.Color;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,12 +15,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
-
-import com.usal.aerolinea.negocio.IOManager;
-import com.usal.aerolinea.negocio.Telefono;
-import com.usal.aerolinea.negocio.Cliente.Cliente;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAO;
-import com.usal.aerolinea.negocio.Cliente.ClienteDAOImpl;
+import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplJDBC;
+import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
+import com.usal.aerolinea.negocio.dto.Cliente;
+import com.usal.aerolinea.negocio.dto.IOManager;
+import com.usal.aerolinea.negocio.dto.Telefono;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -43,7 +42,7 @@ public class PanelClientes extends JPanel implements ActionListener{
 	private JTextField txtPasaporteCliente;
 	private JTextField txtPasajeroFrec;
 	private JTextField txtDirCliente;
-	private ClienteDAO clienteDAO = new ClienteDAOImpl();
+	private ClienteInterface clienteInterface = new ClienteImplJDBC();
 	private JButton btnAgregarCliente;
 	private ArrayList<JTextField> campos = new ArrayList<JTextField>();
 	
@@ -162,7 +161,12 @@ public class PanelClientes extends JPanel implements ActionListener{
 	}
 	
 	private void leerClientes(){
-		this.clientes = clienteDAO.leerClientes();
+		try {
+			this.clientes = clienteInterface.leerClientes();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void actualizarTabla(ArrayList<Cliente> clientes){
@@ -209,8 +213,16 @@ public class PanelClientes extends JPanel implements ActionListener{
 			if(CamposManager.camposCompletos(campos)){
 				Cliente nuevoCliente = this.leerInput();
 				this.agregarCliente(nuevoCliente);
-				if(clienteDAO.escribirClientes(clientes)){
-					JOptionPane.showMessageDialog(null, "Cliente agregado correctamente!");
+				try {
+					if(clienteInterface.escribirClientes(clientes)){
+						JOptionPane.showMessageDialog(null, "Cliente agregado correctamente!");
+					}
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}	
 			}
 			else{
