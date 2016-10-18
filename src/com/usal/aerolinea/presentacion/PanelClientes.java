@@ -45,7 +45,6 @@ public class PanelClientes extends JPanel implements ActionListener{
 	private JTextField txtDirCliente;
 	private ClienteDAO clienteDAO = new ClienteDAOImpl();
 	private JButton btnAgregarCliente;
-	private ModificarCliente modCliente;
 	private ArrayList<JTextField> campos = new ArrayList<JTextField>();
 	
 	public PanelClientes(VentanaPrincipal ppal) {
@@ -225,18 +224,8 @@ public class PanelClientes extends JPanel implements ActionListener{
 			btnAgregarCliente.setEnabled(false);
 		}
 		else if(e.getSource() == btnModificarCliente){
-				PanelModificarCliente panelModCliente = new PanelModificarCliente();
-				modCliente = new ModificarCliente();
-				modCliente.getContentPane().add(panelModCliente);
-				modCliente.setVisible(true);
 				IOManager.print("se abrio mod cliente.");
-			try{
-//				this.revalidate();
-//				this.repaint();
-				System.out.println("se abrio el panel de mod cliente2.");
-				}catch(Exception exce){
-					System.out.println("Error"+exce.getCause());
-				}
+	
 		}
 		else if(e.getSource()==btnEliminarCliente){
 			
