@@ -42,6 +42,18 @@ public class ClienteImplFile implements ClienteInterface{
 		}
 		return ok;
 	}
+
+	@Override
+	public boolean eliminarCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modificarCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

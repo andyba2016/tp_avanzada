@@ -35,9 +35,11 @@ public class ClienteImplJDBC implements ClienteInterface{
 				cliente.setApellido(rs.getString(3));
 				cliente.setDni(rs.getString(4));
 				cliente.setEmail(rs.getString(8));
-				DateFormat format = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
-				Date date = (Date) format.parse(rs.getString(7));
-				cliente.setFechaNac(date);
+				cliente.setCuit(rs.getString(6));
+				cliente.setTelefono(rs.getString("telefono"));
+				//DateFormat format = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
+				//Date date = (java.sql.Date) format.parse(rs.getString(7));
+				//cliente.setFechaNac(date);
 				clientes.add(cliente);
 			}
 
@@ -60,8 +62,8 @@ public class ClienteImplJDBC implements ClienteInterface{
 			con = db.getConn();
 			con.setAutoCommit(false);
 			for (Cliente cliente : clientes) {
-				String query = "INSERT INTO clientes (nombre,apellido,dni,cuit)" + " VALUES ('" + cliente.getNombre() + "','"
-						+ cliente.getApellido() + "','" + cliente.getDni() + "','"+cliente.getCuit()+"')";
+				String query = "INSERT INTO clientes (nombre,apellido,dni,cuit,telefono)" + " VALUES ('" + cliente.getNombre() + "','"
+						+ cliente.getApellido() + "','" + cliente.getDni() + "','"+cliente.getCuit()+"','"+cliente.getTelefono()+"')";
 				st = con.createStatement();
 				st.execute(query);
 				System.out.print(query);
@@ -77,6 +79,71 @@ public class ClienteImplJDBC implements ClienteInterface{
 
 		return ok;
 
+	}
+
+	@Override
+	public boolean eliminarCliente(Cliente cliente) {
+		boolean ok = false;
+		Connection con = null;
+		Statement st = null;
+		try {
+			con = db.getConn();
+			con.setAutoCommit(false);
+			
+				String query = "DELETE FROM clientes where dni='"+cliente.getDni()+"'";
+				st = con.createStatement();
+				st.execute(query);
+				System.out.print(query);
+			
+			con.commit();
+			ok = true;
+		} catch (Exception e) {
+			System.out.print(e);
+		} finally {		
+			try {
+				st.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return true;
+	}
+
+	@Override
+	public boolean modificarCliente(Cliente cliente) {
+		boolean ok = false;
+		Connection con = null;
+		Statement st = null;
+		try {
+			con = db.getConn();
+			con.setAutoCommit(false);
+			
+				String query = "UPDATE clientes"
+						+ " SET nombre ='"+cliente.getNombre()+"',apellido='"+cliente.getApellido()+"',"
+						+ "cuit='"+cliente.getCuit()+"',telefono='"+cliente.getTelefono()+"'"
+						+ "where dni='"+cliente.getDni()+"'";
+				st = con.createStatement();
+				st.execute(query);
+				System.out.print(query);
+			
+			con.commit();
+			ok = true;
+		} catch (Exception e) {
+			System.out.print(e);
+		} finally {		
+			try {
+				st.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return true;
 	}
 
 }

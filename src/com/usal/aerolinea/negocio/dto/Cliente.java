@@ -11,17 +11,17 @@ public class Cliente implements Serializable{
 	private String dni;
 	//private Pasaporte pasaporte;
 	private String cuit;
-	private Date fechaNac;
+	private java.sql.Date fechaNac;
 	private String email;
-	private Telefono telefono;
+	private String telefono;
 	//private PasajeroFrecuente nroPasajeroFrecuente;
 	
 	public Cliente(){
 		
 	}
 	
-	public Cliente(String nombre, String apellido, String dni, String cuit, Date fechaNac, String email,
-			Telefono telefono) {
+	public Cliente(String nombre, String apellido, String dni, String cuit, java.sql.Date fechaNac, String email,
+			String telefono) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -65,7 +65,7 @@ public class Cliente implements Serializable{
 	public Date getFechaNac() {
 		return fechaNac;
 	}
-	public void setFechaNac(Date fechaNac) {
+	public void setFechaNac(java.sql.Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	public String getEmail() {
@@ -74,10 +74,10 @@ public class Cliente implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Telefono getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Telefono telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 //	public PasajeroFrecuente getNroPasajeroFrecuente() {

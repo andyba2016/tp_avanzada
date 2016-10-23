@@ -9,6 +9,8 @@ public interface ClienteInterface {
 	
 	public abstract boolean escribirClientes(ArrayList<Cliente> clientes) throws SQLException;
 	public abstract ArrayList<Cliente> leerClientes() throws SQLException;
+	public abstract boolean eliminarCliente(Cliente cliente);
+	public abstract boolean modificarCliente(Cliente cliente);
 	
 
 }

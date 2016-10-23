@@ -170,9 +170,10 @@ public class PanelClientes extends JPanel implements ActionListener{
 	}
 	
 	private void actualizarTabla(ArrayList<Cliente> clientes){
+		
 		for (int i =0;i<clientes.size();i++){
 			Object[] c = {clientes.get(i).getNombre(),clientes.get(i).getApellido(),clientes.get(i).getDni(),
-					clientes.get(i).getCuit(), clientes.get(i).getEmail(), clientes.get(i).getTelefono()};
+					clientes.get(i).getCuit(),clientes.get(i).getTelefono()};
 			this.header.addRow(c);
 		}
 	}
@@ -182,7 +183,7 @@ public class PanelClientes extends JPanel implements ActionListener{
 		c.setNombre(txtNombreCliente.getText());
 		c.setApellido(txtApellidoCliente.getText());
 		c.setDni(txtDniCliente.getText());
-		c.setTelefono(new Telefono(txtTelCliente.getText()));
+		c.setTelefono(txtTelCliente.getText());
 		c.setCuit(txtCuitCliente.getText());
 		c.setEmail(txtEmailCliente.getText());
 		
@@ -210,6 +211,7 @@ public class PanelClientes extends JPanel implements ActionListener{
 			btnAgregarCliente.setEnabled(true);
 		}
 		else if(e.getSource()== btnAgregarCliente){
+			if (btnAgregarCliente.getText()!="Modificar cliente"){
 			if(CamposManager.camposCompletos(campos)){
 				Cliente nuevoCliente = this.leerInput();
 				this.agregarCliente(nuevoCliente);
@@ -234,13 +236,89 @@ public class PanelClientes extends JPanel implements ActionListener{
 			this.leerClientes();
 			this.actualizarTabla(this.clientes);
 			btnAgregarCliente.setEnabled(false);
+		}else{
+			
+		IOManager.print("Modificar");
+		
+		if(clienteInterface.modificarCliente(leerInput())){
+			JOptionPane.showMessageDialog(null, "Cliente modificado correctamente!");
+			this.leerClientes();
+			limpiarTabla();
+			actualizarTabla(clientes);
+			campos.add(txtNombreCliente);
+			campos.add(txtApellidoCliente);
+			campos.add(txtNacCliente);
+			campos.add(txtCuitCliente);
+			campos.add(txtEmailCliente);
+			campos.add(txtTelCliente);
+			campos.add(txtPasaporteCliente);
+			campos.add(txtPasajeroFrec);
+			campos.add(txtDirCliente);
+			campos.add(txtDniCliente);
+			txtDniCliente.setEditable(true);
+			CamposManager.deshabilitarCampos(campos);
+			CamposManager.limpiarCampos(campos);
+			
+		}
+		
+		  
+		}
 		}
 		else if(e.getSource() == btnModificarCliente){
 				IOManager.print("se abrio mod cliente.");
+				Integer index = 0;
+				index = this.tablaClientes.getSelectedRow();
+				IOManager.print("Indice de tabla "+index);
+				Cliente cliente = new Cliente();
+				IOManager.print("Indice de tabla "+this.clientes.get(index).getDni());
+				cliente = clientes.get(index);
+				txtCuitCliente.setText(cliente.getCuit());
+				txtApellidoCliente.setText(cliente.getApellido());
+				txtNombreCliente.setText(cliente.getNombre());
+				txtDniCliente.setText(cliente.getDni());
+				//txtNacCliente.setText(cliente.getFechaNac().toString());
+				txtEmailCliente.setText(cliente.getEmail());
+				txtTelCliente.setText(cliente.getTelefono());
+				campos.add(txtNombreCliente);
+				campos.add(txtApellidoCliente);
+				campos.add(txtNacCliente);
+				campos.add(txtCuitCliente);
+				campos.add(txtEmailCliente);
+				campos.add(txtTelCliente);
+				campos.add(txtPasaporteCliente);
+				campos.add(txtPasajeroFrec);
+				campos.add(txtDirCliente);
+				btnAgregarCliente.setText("Modificar cliente");
+				btnAgregarCliente.setEnabled(true);
+				txtDniCliente.setEditable(false);
+				
 	
+				CamposManager.habilitarCampos(campos);
+				
+				
 		}
 		else if(e.getSource()==btnEliminarCliente){
-			
+			IOManager.print("se abrio eliminar cliente.");
+			Integer index = null;
+			index = this.tablaClientes.getSelectedRow();
+			String dni = (String) this.tablaClientes.getValueAt(index,2);
+			IOManager.print("Indice de tabla "+index);
+			IOManager.print("DNI seleccionado "+dni);
+		    int result = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el cliente seleccionado?");
+		    if(result==0 && index!=null){	
+		    	
+		    	this.header.removeRow(index);
+		    	try {
+		    		Cliente cliente = new Cliente();
+		    		cliente.setDni(dni);
+					if(clienteInterface.eliminarCliente(cliente)){
+						JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente!");
+					}
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		    }
 		}
 		
 		
