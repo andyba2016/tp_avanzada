@@ -258,6 +258,8 @@ public class PanelClientes extends JPanel implements ActionListener{
 			txtDniCliente.setEditable(true);
 			CamposManager.deshabilitarCampos(campos);
 			CamposManager.limpiarCampos(campos);
+			btnAgregarCliente.setText("Agregar cliente");
+			btnAgregarCliente.setEnabled(false);
 			
 		}
 		
