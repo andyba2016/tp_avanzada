@@ -1,4 +1,4 @@
-package com.usal.aerolinea.presentacion;
+package com.usal.aerolinea.gui.panels;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

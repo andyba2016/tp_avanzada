@@ -1,4 +1,4 @@
-package com.usal.aerolinea.presentacion;
+package com.usal.aerolinea.gui.panels;
 
 import java.awt.Font;
 import java.awt.HeadlessException;
@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+
+import com.usal.aerolinea.gui.frames.VentanaPrincipal;
 import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplJDBC;
 import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
 import com.usal.aerolinea.negocio.dto.Cliente;

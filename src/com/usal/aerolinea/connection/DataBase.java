@@ -1,4 +1,4 @@
-package com.avanzada.aerolinea.connection;
+package com.usal.aerolinea.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

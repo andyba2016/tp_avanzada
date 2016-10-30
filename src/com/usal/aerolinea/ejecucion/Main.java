@@ -1,3 +1,4 @@
+package com.usal.aerolinea.ejecucion;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,11 +9,11 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JToolBar;
 
+import com.usal.aerolinea.gui.frames.VentanaPrincipal;
 import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplFile;
 import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
 import com.usal.aerolinea.negocio.dto.Cliente;
 import com.usal.aerolinea.negocio.dto.Telefono;
-import com.usal.aerolinea.presentacion.VentanaPrincipal;
 
 import javax.swing.JMenuBar;
 

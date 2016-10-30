@@ -1,4 +1,4 @@
-package com.usal.aerolinea.presentacion;
+package com.usal.aerolinea.gui.panels;
 
 import java.awt.Color;
 import java.util.ArrayList;

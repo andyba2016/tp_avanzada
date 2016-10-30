@@ -1,4 +1,4 @@
-package com.usal.aerolinea.presentacion;
+package com.usal.aerolinea.gui.frames;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import com.usal.aerolinea.gui.panels.PanelAereas;
+import com.usal.aerolinea.gui.panels.PanelClientes;
+import com.usal.aerolinea.gui.panels.PanelVentas;
+import com.usal.aerolinea.gui.panels.PanelVuelos;
 import com.usal.aerolinea.negocio.dao.implementaciones.ClienteImplFile;
 import com.usal.aerolinea.negocio.dao.interfaces.ClienteInterface;
 import com.usal.aerolinea.negocio.dto.Cliente;

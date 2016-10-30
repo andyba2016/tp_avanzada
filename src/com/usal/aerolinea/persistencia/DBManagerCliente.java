@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import com.avanzada.aerolinea.connection.DataBase;
+import com.usal.aerolinea.connection.DataBase;
 import com.usal.aerolinea.negocio.dto.Cliente;
 import com.usal.aerolinea.negocio.dto.IOManager;
 
